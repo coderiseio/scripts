@@ -4,6 +4,7 @@ var buildDisplayName = process.env.BUILD_DISPLAY_NAME
 var gitBranch        = process.env.GIT_BRANCH
 var gitCommit        = process.env.GIT_COMMIT
 var pipelineId       = process.env.PIPELINE_ID
+var senderAddress    = "CI Builds <equibit.builds@gmail.com>"
 var recipientAddress = process.env.RECIPIENT_ADDRESS
 var projectName      = process.env.PROJECT_NAME
 var ibmUrl           = "https://console.bluemix.net/devops/pipelines/"
@@ -15,7 +16,7 @@ var smtpTransport = nodemailer.createTransport("smtps://" + process.env.EMAIL_ID
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
-    from: "CI Builds <" + process.env.EMAIL_ID + ">", // sender address
+    from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
     subject: "[" + projectName + "] BUILD " + buildDisplayName + "(" + gitBranch + "-" + gitCommit + ")", // Subject line
     html: "<b>Project:" + projectName + "</b><br /><br /><b>Build " + buildDisplayName + ": PASSED</b><br /><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
