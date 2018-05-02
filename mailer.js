@@ -20,7 +20,7 @@ var mailOptions = {
     from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
     subject: "[" + buildStatus  + "] " + projectName + ":" + buildDisplayName + "(" + gitBranch + ")", // Subject line
-    html: "<h3>Project:" + projectName + "</h3><br /><br /><h3>Build " + buildDisplayName + ": " + buildStatus + " </h3><br /><br />GIT BRANCH:" + gitBranch + "<br /><br /> GIT COMMIT: "+ gitCommit +"<br/><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
+    html: "<b>Project Name: </b>" + projectName + "<br /><b>Build Number: </b>" + buildDisplayName + "<br /><b>Build Status: </b>" + buildStatus + "<br /><b>GIT BRANCH: </b>" + gitBranch + "<br />GIT COMMIT: </b>"+ gitCommit +"<br/><b>LINK: </b>" + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
 }
 
 // send mail with defined transport object
