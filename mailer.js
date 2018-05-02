@@ -14,7 +14,7 @@ var projectName      = process.env.PROJECT_NAME
 var buildStatus      = process.env.BUILD_STATUS
 var ibmUrl           = "https://console.bluemix.net/devops/pipelines/"
 
-//console.log(process.env)
+console.log(process.env)
 
 // create reusable transport method (opens pool of SMTP connections)
 var smtpTransport = nodemailer.createTransport("smtps://equibit.builds%40gmail.com:"+encodeURIComponent("" + process.env.EMAIL_PWD + "") + "@smtp.gmail.com:465");
