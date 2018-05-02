@@ -7,6 +7,7 @@ var pipelineId       = process.env.PIPELINE_ID
 var senderAddress    = process.env.SENDER_ADDRESS
 var recipientAddress = process.env.RECIPIENT_ADDRESS
 var projectName      = process.env.PROJECT_NAME
+var buildStatus      = process.env.BUILD_STATUS
 var ibmUrl           = "https://console.bluemix.net/devops/pipelines/"
 
 console.log(process.env)
@@ -18,8 +19,8 @@ var smtpTransport = nodemailer.createTransport("smtps://" + process.env.EMAIL_ID
 var mailOptions = {
     from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
-    subject: "[" + projectName + "] BUILD " + buildDisplayName + "(" + gitBranch + "-" + gitCommit + ")", // Subject line
-    html: "<b>Project:" + projectName + "</b><br /><br /><b>Build " + buildDisplayName + ": PASSED</b><br /><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
+    subject: "[" + buildStatus  + "] " + projectName + ":" + buildDisplayName + "(" + gitBranch + "-" + gitCommit + ")", // Subject line
+    html: "<b>Project:" + projectName + "</b><br /><br /><b>Build " + buildDisplayName + ": " + buildStatus + " </b><br /><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
 }
 
 // send mail with defined transport object
