@@ -5,4 +5,5 @@ export PROJECT_NAME="${CF_APP}"
 
 echo "BUILD STATUS: $BUILD_STATUS"
 echo "Sending email notification to: $RECIPIENT_ADDRESS"
-node mailer.js
+npm install nodemailer
+node scripts/mailer.js
