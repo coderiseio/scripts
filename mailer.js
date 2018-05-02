@@ -4,7 +4,7 @@ var buildDisplayName = process.env.BUILD_DISPLAY_NAME
 var gitBranch        = process.env.GIT_BRANCH
 var gitCommit        = process.env.GIT_COMMIT
 var pipelineId       = process.env.PIPELINE_ID
-var senderAddress    = process.env.SENDER_ADDRESS
+var senderAddress    = "equibit.builds@gmail.com"
 var recipientAddress = process.env.RECIPIENT_ADDRESS
 var projectName      = process.env.PROJECT_NAME
 var buildStatus      = process.env.BUILD_STATUS
@@ -13,7 +13,7 @@ var ibmUrl           = "https://console.bluemix.net/devops/pipelines/"
 console.log(process.env)
 
 // create reusable transport method (opens pool of SMTP connections)
-var smtpTransport = nodemailer.createTransport("smtps://" + process.env.EMAIL_ID + ":"+encodeURIComponent("" + process.env.EMAIL_PWD + "") + "@smtp.gmail.com:465");
+var smtpTransport = nodemailer.createTransport("smtps://equibit.builds%40gmail.com:"+encodeURIComponent("" + process.env.EMAIL_PWD + "") + "@smtp.gmail.com:465");
 
 // setup e-mail data with unicode symbols
 var mailOptions = {
