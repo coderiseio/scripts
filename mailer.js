@@ -19,8 +19,8 @@ var smtpTransport = nodemailer.createTransport("smtps://" + process.env.EMAIL_ID
 var mailOptions = {
     from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
-    subject: "[" + buildStatus  + "] " + projectName + ":" + buildDisplayName + "(" + gitBranch + "-" + gitCommit + ")", // Subject line
-    html: "<b>Project:" + projectName + "</b><br /><br /><b>Build " + buildDisplayName + ": " + buildStatus + " </b><br /><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
+    subject: "[" + buildStatus  + "] " + projectName + ":" + buildDisplayName + "(" + gitBranch + ")", // Subject line
+    html: "<h3>Project:" + projectName + "</h3><br /><br /><h3>Build " + buildDisplayName + ": " + buildStatus + " </h3><br /><br />GIT BRANCH:" + gitBranch + "<br /><br /> GIT COMMIT: "+ gitCommit +"<br/><br />LINK: " + ibmUrl + pipelineId + "?env_id=ibm:yp:us-south<br /><br />" // html body
 }
 
 // send mail with defined transport object
