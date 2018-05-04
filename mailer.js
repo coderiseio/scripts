@@ -11,7 +11,7 @@ var taskId           = process.env.TASK_ID
 var idsStageName     = process.env.IDS_STAGE_NAME
 var senderAddress    = "equibit.builds@gmail.com"
 var recipientAddress = process.env.RECIPIENT_ADDRESS
-var projectName      = process.env.PROJECT_NAME
+var idsProjectName   = process.env.IDS_PROJECT_NAME
 var buildStatus      = process.env.BUILD_STATUS
 var ibmUrl           = "https://console.bluemix.net/devops/pipelines/"
 
@@ -24,7 +24,7 @@ var smtpTransport = nodemailer.createTransport("smtps://equibit.builds%40gmail.c
 var mailOptions = {
     from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
-    subject: "[ Build " + buildStatus  + "] on " + projectName + " " + buildDisplayName + " (" + gitBranch + ")", // Subject line
+    subject: "[ Build " + buildStatus  + "] on " + idsProjectName + " " + buildDisplayName + " (" + gitBranch + ")", // Subject line
     html: "<b>Project: </b>" + projectName + "<br /><br /><b>" + idsStageName + ": </b>" + buildDisplayName + "<br /><br /><b>Status: </b>" + buildStatus + "<br /><br /><b>Branch: </b>" + gitBranch + "<br /><br /><b>Commit: </b>"+ gitCommit +"<br/><br /><b>Repository: </b>"+ gitUrl +"<br/><br /><br /><b>For more detailed information, please use this link: </b>" + ibmUrl + pipelineId + "/" + pipelineStageId + "/" + idsJobId + "/" + taskId + "?env_id=ibm:yp:us-south<br /><br /><br />" // html body
 }
 
