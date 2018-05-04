@@ -24,7 +24,7 @@ var smtpTransport = nodemailer.createTransport("smtps://equibit.builds%40gmail.c
 var mailOptions = {
     from: senderAddress, // sender address
     to: recipientAddress, // list of receivers
-    subject: "[ " + buildStatus + "] Build " + buildDisplayName + " on " + idsProjectName + " (" + gitBranch + ")", // Subject line
+    subject: "[ Build " + buildStatus + "] Build " + buildDisplayName + " on " + idsProjectName + " (" + gitBranch + ")", // Subject line
     html: "<b>Project: </b>" + idsProjectName + "<br /><br /><b>" + idsStageName + ": </b>" + buildDisplayName + "<br /><br /><b>Status: </b>" + buildStatus + "<br /><br /><b>Branch: </b>" + gitBranch + "<br /><br /><b>Commit: </b>"+ gitCommit +"<br/><br /><b>Repository: </b>"+ gitUrl +"<br/><br /><br /><b>For more detailed information, please use this link: </b>" + ibmUrl + pipelineId + "/" + pipelineStageId + "/" + idsJobId + "/" + taskId + "?env_id=ibm:yp:us-south<br /><br /><br />" // html body
 }
 
